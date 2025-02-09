@@ -6,7 +6,17 @@ import 'local_storage.dart';
 const String _separator = '|';
 
 class SecureLocalStorage extends LocalStorage {
-  late FlutterSecureStorage _storage;
+  SecureLocalStorage._(this._storage);
+
+  static final SecureLocalStorage _instance = SecureLocalStorage._(
+    const FlutterSecureStorage(
+      aOptions: AndroidOptions(
+        encryptedSharedPreferences: true,
+      ),
+    ),
+  );
+
+  final FlutterSecureStorage _storage;
 
   @override
   Future<bool> addStringToList(String key, String value) async {
@@ -77,17 +87,6 @@ class SecureLocalStorage extends LocalStorage {
   }
 
   @override
-  Future<void> init() async {
-    _storage = const FlutterSecureStorage(
-      aOptions: AndroidOptions(
-        encryptedSharedPreferences: true,
-      ),
-    );
-
-    return;
-  }
-
-  @override
   Future<bool> remove(String key) async {
     return _storage.delete(key: key).then((_) => true);
   }
@@ -126,4 +125,6 @@ class SecureLocalStorage extends LocalStorage {
         .write(key: key, value: value.join(_separator))
         .then((_) => true);
   }
+
+  static Future<SecureLocalStorage> getInstance() => Future.value(_instance);
 }

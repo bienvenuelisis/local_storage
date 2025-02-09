@@ -15,8 +15,6 @@ abstract class LocalStorage {
 
   Future<List<String>?> getStringList(String key);
 
-  Future<void> init();
-
   Future<bool> remove(String key);
 
   Future<bool> removeStringFromList(String key, String value);
