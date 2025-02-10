@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_storage/src/local_storage_exception.dart';
 
-import 'local_storage.dart';
+import '../interface/local_storage.dart';
 
 const String _separator = '|';
 
