@@ -9,6 +9,7 @@ A local storage implementation using `SharedPreferences`, `FlutterSecureStorage`
 - Check if a key exists in the storage
 - Clear all data in the storage
 - Use an interface to switch between different storage implementations (`SharedPreferences`, `FlutterSecureStorage`, etc.)
+- Use a simple `Map` implementation for testing purposes
 
 ## Installation
 
@@ -29,7 +30,7 @@ Then, run `flutter pub get` to install the package.
 
 ### Initialization
 
-Before using the `LocalStorage` interface, you need to initialize the desired implementation (`SharedPreferencesLocalStorage` or `SecureLocalStorage`) and register it with `get_it`:
+Before using the `LocalStorage` interface, you need to initialize the desired implementation (`SharedPreferencesLocalStorage`, `SecureLocalStorage`, or `MapLocalStorage`) and register it with `get_it`:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -116,6 +117,42 @@ await localStorage.remove('key');
 
 // Clear all data
 await localStorage.clear();
+```
+
+### Using `MapLocalStorage` for Testing
+
+For testing purposes, you can use the `MapLocalStorage` implementation, which uses an in-memory `Map` object:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:local_storage_impl/local_storage_impl.dart';
+
+final getIt = GetIt.instance;
+
+void setup() {
+  final mapLocalStorage = MapLocalStorage();
+  getIt.registerSingleton<LocalStorage>(mapLocalStorage);
+}
+
+void main() {
+  setup();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Local Storage Example')),
+        body: Center(
+          child: Text('Local Storage Example'),
+        ),
+      ),
+    );
+  }
+}
 ```
 
 ### Switching Implementations
