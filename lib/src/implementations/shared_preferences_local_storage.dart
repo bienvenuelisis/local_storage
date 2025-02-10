@@ -1,7 +1,6 @@
-import 'package:local_storage/src/local_storage_exception.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../interface/local_storage.dart';
+import '../../local_storage.dart';
 
 /// A local storage implementation using SharedPreferences.
 class SharedPreferencesLocalStorage extends LocalStorage {

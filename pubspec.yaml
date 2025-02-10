@@ -1,6 +1,10 @@
 name: local_storage
-description: "Interface and implementations of different local storage providers."
+description: A local storage implementation using SharedPreferences, FlutterSecureStorage, or any other local storage implementation for Flutter applications.
 version: 0.0.2
+homepage: https://github.com/bienvenuelisis/local_storage
+repository: https://github.com/bienvenuelisis/local_storage
+issue_tracker: https://github.com/bienvenuelisis/local_storage/issues
+
 
 environment:
   sdk: '>=3.2.2 <4.0.0'
