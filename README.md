@@ -16,7 +16,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  local_storage:
+  local_storage_impl:
     git:
       url: https://github.com/bienvenuelisis/local_storage.git
       ref: main
@@ -34,7 +34,7 @@ Before using the `LocalStorage` interface, you need to initialize the desired im
 ```dart
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:local_storage/local_storage.dart';
+import 'package:local_storage_impl/local_storage_impl.dart';
 
 final getIt = GetIt.instance;
 
@@ -125,7 +125,7 @@ You can easily switch between different storage implementations by changing the 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:local_storage/local_storage.dart';
+import 'package:local_storage_impl/local_storage_impl.dart';
 
 final getIt = GetIt.instance;
 

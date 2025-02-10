@@ -1,4 +1,4 @@
-name: local_storage
+name: local_storage_impl
 description: A local storage implementation using SharedPreferences, FlutterSecureStorage, or any other local storage implementation for Flutter applications.
 version: 0.0.2
 homepage: https://github.com/bienvenuelisis/local_storage
