@@ -1,4 +1,4 @@
-import '../../local_storage.dart';
+import '../../local_storage_impl.dart';
 
 /// A local storage implementation using a simple Map object.
 /// This is useful for testing purposes.
