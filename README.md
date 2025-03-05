@@ -1,6 +1,6 @@
 # Local Storage
 
-A local storage implementation using `SharedPreferences`, `FlutterSecureStorage`, or any other local storage implementation for Flutter applications.
+A local storage implementation using `SharedPreferences`, `SharedPreferencesSync`, `FlutterSecureStorage`, or any other local storage implementation for Flutter applications.
 
 ## Features
 
@@ -8,7 +8,7 @@ A local storage implementation using `SharedPreferences`, `FlutterSecureStorage`
 - Add and remove strings from a list stored under a given key
 - Check if a key exists in the storage
 - Clear all data in the storage
-- Use an interface to switch between different storage implementations (`SharedPreferences`, `FlutterSecureStorage`, etc.)
+- Use an interface to switch between different storage implementations (`SharedPreferences`, `SharedPreferencesSync`, `FlutterSecureStorage`, etc.)
 - Use a simple `Map` implementation for testing purposes
 
 ## Installation
@@ -17,11 +17,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  local_storage_impl:
-    git:
-      url: https://github.com/bienvenuelisis/local_storage.git
-      ref: main
-  get_it: # Riverpod, another dependency injection package.
+  local_storage_impl: ^0.0.3
 ```
 
 Then, run `flutter pub get` to install the package.
